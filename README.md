@@ -1,6 +1,6 @@
 # MarqueeLight
 
-屏幕边缘跑马灯灯带，与 OpenCode AI 编程助手联动，通过灯带的**颜色**和**动画模式**直观展示 AI 的会话状态。
+屏幕边缘跑马灯灯带，与 OpenCode / Codex AI 编程助手联动，通过灯带的**颜色**和**动画模式**直观展示 AI 的会话状态。
 
 ## 效果预览
 
@@ -27,7 +27,7 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 ./publish/MarqueeLight.exe
 ```
 
-程序启动后，灯带默认**不显示**，直到 OpenCode 插件首次调用 API。
+程序启动后，灯带默认**不显示**，直到 OpenCode 插件或 Codex hook 首次调用 API。
 
 ### 2. 安装 OpenCode 插件
 
@@ -38,9 +38,25 @@ cp opencode-plugin/notification.js ~/.config/opencode/plugins/notification.js
 
 重启 OpenCode 后插件自动生效。
 
-### 3. 使用
+### 3. 接入 Codex
 
-保持 `MarqueeLight.exe` 在后台运行。当 OpenCode 中 AI 开始工作时，灯带自动亮起并切换状态。
+项目内已包含 Codex hook 配置：
+
+- `.codex/config.toml`
+- `.codex/hooks.json`
+- `codex-plugin/marqueelight-codex-hook.js`
+
+在 Codex 中启用 hooks 后，重启当前项目的 Codex 会话：
+
+```powershell
+codex.cmd features enable hooks
+```
+
+如需全局启用，请参考 `codex-plugin/README.md`，将 hook 命令改为绝对路径。
+
+### 4. 使用
+
+保持 `MarqueeLight.exe` 在后台运行。当 OpenCode 或 Codex 中 AI 开始工作时，灯带自动亮起并切换状态。
 
 ## HTTP API
 
@@ -57,7 +73,7 @@ cp opencode-plugin/notification.js ~/.config/opencode/plugins/notification.js
 
 ### 状态映射
 
-插件自动将 OpenCode 事件映射为灯带状态：
+插件自动将 OpenCode / Codex 事件映射为灯带状态：
 
 ```js
 状态 → 灯带:
@@ -66,6 +82,11 @@ cp opencode-plugin/notification.js ~/.config/opencode/plugins/notification.js
   input (需输入) → 红色 + blink (闪烁)
   error (错误)   → 红色 + blink (闪烁)
   closed (关闭)  → 关闭灯带
+
+Codex:
+  UserPromptSubmit / PreToolUse → 绿色 + marquee (跑马灯)
+  PermissionRequest             → 红色 + blink (闪烁)
+  Stop                          → 绿色 + steady (常亮)
 ```
 
 ## 托盘菜单
@@ -99,6 +120,10 @@ MarqueeLight/
 │   └── Models/            # 数据模型
 ├── opencode-plugin/       # OpenCode 集成插件
 │   └── notification.js
+├── codex-plugin/          # Codex hooks 集成
+│   ├── marqueelight-codex-hook.js
+│   ├── hooks.json
+│   └── README.md
 ├── publish/               # 编译输出
 └── README.md
 ```

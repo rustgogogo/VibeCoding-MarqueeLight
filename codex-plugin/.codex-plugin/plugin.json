@@ -1,0 +1,29 @@
+{
+  "name": "marqueelight-codex",
+  "version": "0.1.0",
+  "description": "Connect Codex hook events to the MarqueeLight local HTTP API.",
+  "author": {
+    "name": "MarqueeLight"
+  },
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "hooks",
+    "notification",
+    "marqueelight"
+  ],
+  "interface": {
+    "displayName": "MarqueeLight Codex",
+    "shortDescription": "Show Codex status through MarqueeLight.",
+    "longDescription": "Runs Codex hook commands that update the local MarqueeLight API as Codex starts work, waits for permission, and finishes a turn.",
+    "developerName": "MarqueeLight",
+    "category": "Productivity",
+    "capabilities": [
+      "Hooks"
+    ],
+    "defaultPrompt": [
+      "Use MarqueeLight while Codex works."
+    ],
+    "brandColor": "#22C55E"
+  }
+}

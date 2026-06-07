@@ -1,0 +1,53 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node codex-plugin/marqueelight-codex-hook.js busy",
+            "timeout": 5,
+            "statusMessage": "MarqueeLight: Codex working"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node codex-plugin/marqueelight-codex-hook.js busy",
+            "timeout": 5,
+            "statusMessage": "MarqueeLight: Codex working"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node codex-plugin/marqueelight-codex-hook.js input",
+            "timeout": 5,
+            "statusMessage": "MarqueeLight: Codex waiting"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node codex-plugin/marqueelight-codex-hook.js idle",
+            "timeout": 5,
+            "statusMessage": "MarqueeLight: Codex idle"
+          }
+        ]
+      }
+    ]
+  }
+}
