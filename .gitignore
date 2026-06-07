@@ -1,0 +1,28 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+
+# Build/publish output
+publish/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.sln.DotSettings.user
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Debug logs
+err_dbg.txt
+out_dbg.txt
+marquee_error.log
+
+# Config with local overrides
+appsettings.*.json
