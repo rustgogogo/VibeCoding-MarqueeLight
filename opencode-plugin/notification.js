@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const API_BASE = 'http://localhost:50080'
+const API_BASE = 'http://localhost:10080'
 const logFilePath = path.join(
   process.env.USERPROFILE || process.env.HOME || '.',
   'Desktop',

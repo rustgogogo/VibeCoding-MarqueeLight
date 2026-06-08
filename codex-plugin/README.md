@@ -34,4 +34,4 @@ C:/Users/zhang/Desktop/MarqueeLight/codex-plugin/marqueelight-codex-hook.js
 | `PermissionRequest` | red + blink |
 | `Stop` | green + steady |
 
-Set `MARQUEELIGHT_API_BASE` if MarqueeLight is not using `http://localhost:50080`.
+Set `MARQUEELIGHT_API_BASE` if MarqueeLight is not using `http://localhost:10080`.

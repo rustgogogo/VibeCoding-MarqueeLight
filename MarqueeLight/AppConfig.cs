@@ -10,7 +10,7 @@ public sealed class AppConfig
     public int LightWidth { get; set; } = 8;
     public double GlobalOpacity { get; set; } = 0.85;
     public double LightLengthRatio { get; set; } = 0.125;
-    public int HttpPort { get; set; } = 50080;
+    public int HttpPort { get; set; } = 10080;
 
     public static AppConfig Load()
     {

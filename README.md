@@ -60,7 +60,7 @@ codex.cmd features enable hooks
 
 ## HTTP API
 
-灯带通过本机 HTTP API 控制（端口 `50080`）：
+灯带通过本机 HTTP API 控制（端口 `10080`）：
 
 | 方法 | 路径 | 说明 |
 |---|---|---|
